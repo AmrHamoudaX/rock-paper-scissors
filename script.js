@@ -10,3 +10,8 @@ function getComputerChoice() {
     console.log(scissors);
   }
 }
+
+function getHumanChoice() {
+  let userChoice = String(prompt("Choose rock or paper or scissors"));
+  console.log(userChoice);
+}
