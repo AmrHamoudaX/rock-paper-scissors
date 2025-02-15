@@ -15,3 +15,6 @@ function getHumanChoice() {
   let userChoice = String(prompt("Choose rock or paper or scissors"));
   console.log(userChoice);
 }
+
+let humanScore = 0;
+let computerScore = 0;
