@@ -61,6 +61,8 @@ function playGame() {
       console.log("Congratulations you win!!");
     } else if (i === 4 && humanScore < computerScore) {
       console.log("Hard luck! you lose");
+    } else if (i === 4 && humanScore == computerScore) {
+      console.log("No winner");
     }
   }
 }
