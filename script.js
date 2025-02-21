@@ -1,17 +1,26 @@
+//Dom manipulation
 const body = document.querySelector("body");
 const rock = document.createElement("button");
 const paper = document.createElement("button");
 const scissors = document.createElement("button");
+const results = document.createElement("div");
+const score = document.createElement("div");
+
 rock.textContent = "rock";
 paper.textContent = "paper";
 scissors.textContent = "scissors";
-let userChoice = "";
 
-rock.addEventListener("click", rockChoice)
-paper.addEventListener("click", paperChoice)
-scissors.addEventListener("click", scissorsChoice)
+rock.addEventListener("click", rockChoice);
+paper.addEventListener("click", paperChoice);
+scissors.addEventListener("click", scissorsChoice);
 
 body.append(rock, paper, scissors);
+body.append(results, score);
+
+//rock paper scissors game
+let userChoice = "";
+let humanScore = 0;
+let computerScore = 0;
 
 function rockChoice() {
   userChoice = "rock";
@@ -41,62 +50,36 @@ function getComputerChoice() {
   }
 }
 
-//function getHumanChoice(userChoice) {
-//let userChoice = "";
-//let userChoice = String(prompt("Choose rock or paper or scissors"));
-//if (button == "rock") {
-//userChoice = "rock";
-//return userChoice.toLowerCase();
-//} else if (button == "paper") {
-//userChoice = "paper";
-//return userChoice.toLowerCase();
-//} else if (button == "scissors") {
-//userChoice = "scissors";
-//return userChoice.toLowerCase();
-//}
-//console.log(userChoice);
-//return userChoice.toLowerCase()
-//}
-
-//function playGame() {
-let humanScore = 0;
-let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-  //rock.addEventListener("click", rockChoice);
-  //paper.addEventListener("click", paperChoice);
-  //scissors.addEventListener("click", scissorsChoice);
-
+  
   if (humanChoice == "rock" && computerChoice == "paper") {
-    console.log("you lose! paper beats rock");
+    results.textContent = "you lose! paper beats rock <br> ";
     computerScore++;
-    console.log("this is user = " + humanScore + "  and this is computer " + computerScore);
+    score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
   } else if (humanChoice == "paper" && computerChoice == "scissors") {
-    console.log("you lose! scissors beats paper");
+    results.textContent = "you lose! scissors beats paper";
     computerScore++;
-    console.log("this is user = " + humanScore + "  and this is computer " + computerScore);
+    score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
   } else if (humanChoice == "scissors" && computerChoice == "rock") {
-    console.log("you lose! rock beats scissors");
+    results.textContent = "you lose! rock beats scissors";
     computerScore++;
-    console.log("this is user = " + humanScore + "  and this is computer " + computerScore);
+    score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
   } else if (humanChoice == "rock" && computerChoice == "scissors") {
-    console.log("you win! rock beats scissors");
+    results.textContent = "you win! rock beats scissors";
     humanScore++;
-    console.log("this is user = " + humanScore + "  and this is computer " + computerScore);
+    score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
   } else if (humanChoice == "paper" && computerChoice == "rock") {
-    console.log("you win! paper beats rock");
+    results.textContent = "you win! paper beats rock";
     humanScore++;
-    console.log("this is user = " + humanScore + "  and this is computer " + computerScore);
+    score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
   } else if (humanChoice == "scissors" && computerChoice == "paper") {
-    console.log("you win! scissors beats paper");
+    results.textContent = "you win! scissors beats paper";
     humanScore++;
-    console.log("this is user = " + humanScore + "  and this is computer " + computerScore);
+    score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
   } else {
-    console.log(
-      "It's a Draw! :(   you chose " + humanChoice + "and computer chose   " + computerChoice
-    );
-    console.log("The score is  human = " + humanScore + " and computer = " + computerScore);
+    results.textContent =
+      "It's a Draw! :(   you chose " + humanChoice + "and computer chose   " + computerChoice;
+    score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
   }
 }
-//}
-//playGame();
