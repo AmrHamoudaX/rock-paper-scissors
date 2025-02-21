@@ -22,22 +22,35 @@ let userChoice = "";
 let humanScore = 0;
 let computerScore = 0;
 
+function gameOver() {
+  if (humanScore == 5) {
+    results.textContent = "Yayyy!!! You win!";
+    score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
+  } else if (computerScore == 5) {
+    results.textContent = "Ouch!!! Hard luck you lose!";
+    score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
+  }
+}
+
 function rockChoice() {
   userChoice = "rock";
   userChoice.toLowerCase();
-  return playRound(userChoice, getComputerChoice());
+  playRound(userChoice, getComputerChoice());
+  return gameOver();
 }
 
 function paperChoice() {
   userChoice = "paper";
   userChoice.toLowerCase();
-  return playRound(userChoice, getComputerChoice());
+  playRound(userChoice, getComputerChoice());
+  return gameOver();
 }
 
 function scissorsChoice() {
   userChoice = "scissors";
   userChoice.toLowerCase();
-  return playRound(userChoice, getComputerChoice());
+  playRound(userChoice, getComputerChoice());
+  gameOver();
 }
 
 function getComputerChoice() {
@@ -50,36 +63,36 @@ function getComputerChoice() {
   }
 }
 
-
 function playRound(humanChoice, computerChoice) {
-  
-  if (humanChoice == "rock" && computerChoice == "paper") {
-    results.textContent = "you lose! paper beats rock <br> ";
-    computerScore++;
-    score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
-  } else if (humanChoice == "paper" && computerChoice == "scissors") {
-    results.textContent = "you lose! scissors beats paper";
-    computerScore++;
-    score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
-  } else if (humanChoice == "scissors" && computerChoice == "rock") {
-    results.textContent = "you lose! rock beats scissors";
-    computerScore++;
-    score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
-  } else if (humanChoice == "rock" && computerChoice == "scissors") {
-    results.textContent = "you win! rock beats scissors";
-    humanScore++;
-    score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
-  } else if (humanChoice == "paper" && computerChoice == "rock") {
-    results.textContent = "you win! paper beats rock";
-    humanScore++;
-    score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
-  } else if (humanChoice == "scissors" && computerChoice == "paper") {
-    results.textContent = "you win! scissors beats paper";
-    humanScore++;
-    score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
-  } else {
-    results.textContent =
-      "It's a Draw! :(   you chose " + humanChoice + "and computer chose   " + computerChoice;
-    score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
+  if (humanScore != 5 && computerScore != 5) {
+    if (humanChoice == "rock" && computerChoice == "paper") {
+      results.textContent = "you lose! paper beats rock <br> ";
+      computerScore++;
+      score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
+    } else if (humanChoice == "paper" && computerChoice == "scissors") {
+      results.textContent = "you lose! scissors beats paper";
+      computerScore++;
+      score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
+    } else if (humanChoice == "scissors" && computerChoice == "rock") {
+      results.textContent = "you lose! rock beats scissors";
+      computerScore++;
+      score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
+    } else if (humanChoice == "rock" && computerChoice == "scissors") {
+      results.textContent = "you win! rock beats scissors";
+      humanScore++;
+      score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
+    } else if (humanChoice == "paper" && computerChoice == "rock") {
+      results.textContent = "you win! paper beats rock";
+      humanScore++;
+      score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
+    } else if (humanChoice == "scissors" && computerChoice == "paper") {
+      results.textContent = "you win! scissors beats paper";
+      humanScore++;
+      score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
+    } else {
+      results.textContent =
+        "It's a Draw! :(   you chose " + humanChoice + "and computer chose   " + computerChoice;
+      score.textContent = " user = " + humanScore + "  and computer = " + computerScore;
+    }
   }
 }
